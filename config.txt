@@ -1,0 +1,34 @@
+#TMS OPTITRACK DATA VIEWER CONFIGURATION
+
+[Directories]
+default_input_directory = C:\Users\imagine\Downloads\dieg0020-tms_ot_viewer-a5134ea8ad7a\dieg0020-tms_ot_viewer-a5134ea8ad7a\data
+default_output_directory = C:\Users\imagine\Downloads\dieg0020-tms_ot_viewer-a5134ea8ad7a\dieg0020-tms_ot_viewer-a5134ea8ad7a\output
+
+[Rendering]
+shadows = False
+
+[Background]
+color1 = 0.200000 0.200000 0.200000
+color2 = 0.500000 0.500000 0.500000
+
+[Calibration]
+skull_color = 0.500000 0.500000 0.500000
+points_color = 0.780400 0.521600 0.682400
+
+[Coil]
+height = 0.07
+error_circle_color = 0.502000 0.803900 0.756900
+
+[Blocks]
+cone_color = 0.780400 0.521600 0.682400
+highlight_color = 0.000000 1.000000 1.000000
+
+[Samples]
+cylinder_radius = 0.0005
+cylinder_color = 0.521600 0.172500 0.392200
+cylinder_highlight = 0.000000 1.000000 1.000000
+cylinder_warning = 1.000000 0.337300 0.000000
+line_color = 0.258800 0.000000 0.164700
+line_highlight = 0.000000 1.000000 1.000000
+line_warning = 1.000000 0.337300 0.000000
+
