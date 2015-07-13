@@ -8,8 +8,8 @@ import numpy as np
 from nibabel.affines import apply_affine
 import numpy.linalg as npl
 
-from lib import config
-from lib import transform
+from lib_tms import config
+from lib_tms import transform
 
 
 def load_nifti_PlaneWidget(self):
