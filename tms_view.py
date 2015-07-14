@@ -286,9 +286,6 @@ class TmsView(QtGui.QMainWindow):
             l = ["Right distance INTER",dist_r_inter*1000]
             writer.writerow(l)
 
-
-
-
     @shows_error
     def get_side_total(self, hemi):
         from itertools import chain

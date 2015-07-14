@@ -8,6 +8,7 @@ from tms import tms_geom
 import tms_timing
 import Blocks
 
+from lib_tms import transform
 
 __author__ = 'Diego'
 

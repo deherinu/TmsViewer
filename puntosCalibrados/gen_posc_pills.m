@@ -9,6 +9,6 @@ for i=1:size(mat_file)
     nas=mat_file(i,5:7)
     izq=mat_file(i,8:10)
     pos_pills_mri=[der;nas;izq]
-    nombre=strcat(num2str(name),'.mat')
+    nombre=strcat('calib_pills/mri/',num2str(name),'.mat')
     save(nombre,'pos_pills_mri')
 end

@@ -7,15 +7,19 @@ import vtk
 import numpy as np
 import ConfigParser
 import nibabel as nib
+import os
+from lib_tms import config
+from lib_tms import transform
 
 __author__ = 'Diego'
 
 
 class TmsViewer(object):
     BACKGROUND1 = (0.2, 0.2, 0.2)
-    BACKGROUND2 = (0.5, 0.5, 0.5)
+    BACKGROUND2 = (0.5, 0.5, 0.2)
     SKULL_COLOR = (0.5, 0.5, 0.5)
-    CALIB_COLOR = (0.7804, 0.5216, 0.6824)
+    #CALIB_COLOR = (0.7804, 0.5216, 0.6824)
+    CALIB_COLOR = (1, 0, 0)
 
     SAMPLE_LINE_COLOR = (0.2588, 0.0000, 0.1647)
     SAMPLE_LINE_WARNING_COLOR = (1.0000, 0.3373, 0.0000)
@@ -26,9 +30,11 @@ class TmsViewer(object):
     SAMPLE_CYLINDER_HIGHLIGHT_COLOR = (0, 1, 1)
     SAMPLE_RADIUS = 0.0005
 
-    ERROR_COLOR = (0.5020, 0.8039,	0.7569)
+    #ERROR_COLOR = (0.5020, 0.8039,	0.7569)
+    ERROR_COLOR = (0, 0, 1)
 
-    BLOCK_COLOR = (0.7804, 0.5216, 0.6824)
+    #BLOCK_COLOR = (0.7804, 0.5216, 0.6824)
+    BLOCK_COLOR = (1, 0, 0)
     BLOCK_HIGHLIGHT_COLOR = (0, 1, 1)
 
     COIL_HEIGHT = 0.07
@@ -252,10 +258,12 @@ class TmsViewer(object):
 
         ctr = block.mean_coil_center
         tip = block.mean_intersection
-        r = block.circle_radius
+        #r = block.circle_radius
+        #r = block.circle_radius
+        r = 5
 
         source.SetCenter(tip-((tip-ctr)/np.linalg.norm(tip-ctr))*0.5*self.COIL_HEIGHT)
-        source.SetHeight(self.COIL_HEIGHT*100)
+        source.SetHeight(self.COIL_HEIGHT*1000)
         source.SetRadius(r)
         source.SetDirection(tip-ctr)
         source.SetResolution(20)
@@ -303,7 +311,8 @@ class TmsViewer(object):
         p1 = sample.coil_center
         p2 = sample.sphere_intersection
         p1 = (p2+(p1-p2)/np.linalg.norm(p1-p2)*self.COIL_HEIGHT)
-        p3 = p1+(p2-p1)*1.2  # an extra 20% to guarantee it goes into the sphere
+        #p3 = p1+(p2-p1)*1.2  # an extra 20% to guarantee it goes into the sphere
+        p3 = p1+(p2-p1)*500
 
         source = vtk.vtkLineSource()
         source.SetPoint1(p1)
@@ -339,10 +348,12 @@ class TmsViewer(object):
         p1 = sample.coil_center
         p2 = sample.sphere_intersection
         p3 = p1+(p2-p1)*1.2  # an extra 20% to guarantee it goes into the sphere
-        height = self.COIL_HEIGHT*1.2
+        #height = self.COIL_HEIGHT*1.2
+        height = self.COIL_HEIGHT*500
         source = vtk.vtkCylinderSource()
         source.SetCenter(0,0,0)
-        source.SetRadius(self.SAMPLE_RADIUS)
+        #source.SetRadius(self.SAMPLE_RADIUS)
+        source.SetRadius(2)
         source.SetHeight(height)
         source.SetResolution(8)
 
@@ -585,9 +596,10 @@ class TmsViewer(object):
         self.experiment = experiment
         #self.__draw_sphere(experiment.sphere_radius-100,experiment.sphere_center,self.SKULL_COLOR,resolution=50)
         for p in experiment.calibration_points.itervalues():
-            self.__draw_sphere(10,p,self.CALIB_COLOR)
+            #self.__draw_sphere(10,p,self.CALIB_COLOR)
+            self.__draw_sphere(10,p,(1, 0, 0))
         #self.__draw_nose(experiment.calibration_points,experiment.sphere_center)
-        self.image_plane_widget()
+        self.load_nifti()
         self.ren.Render()
         self.reset_camera()
         self.ren_win.Render()
@@ -729,12 +741,16 @@ class TmsViewer(object):
         self.ren.ResetCameraClippingRange()
 
 
-    def image_plane_widget(self):
+    def load_nifti(self):
 
-        img = nib.load('C:/Users/deyberth/Desktop/429.nii.gz')
+        T1_file = os.path.join(config.T1Path, 'T1W3DTFESENSE.nii.gz')
+        img = nib.load(T1_file)
         img_data = img.get_data()
         img_data = np.transpose(img_data, (2, 1, 0))
         img_data_shape = img_data.shape
+
+        #Get affine matrix
+        affine_matrix = transform.getTransformMatrix(img)
 
         dataImporter = vtk.vtkImageImport()
         dataImporter.SetDataScalarTypeToShort()
@@ -745,8 +761,11 @@ class TmsViewer(object):
         dataImporter.SetWholeExtent(0, img_data_shape[0] - 1, 0, img_data_shape[1] - 1, 0, img_data_shape[2] - 1)
         dataImporter.Update()
         temp_data = dataImporter.GetOutput()
+        new_data_temp = vtk.vtkImageData()
+        new_data_temp.DeepCopy(temp_data)
+
         new_data = vtk.vtkImageData()
-        new_data.DeepCopy(temp_data)
+        new_data = transform.resliceImage(new_data_temp, affine_matrix)
 
         #outline
         outline=vtk.vtkOutlineFilter()

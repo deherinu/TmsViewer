@@ -42,7 +42,7 @@ function [rigid_Matrix] = B_rigid_transformation_3D(data_1,data_2)
     rigid_Matrix=[rigid_Matrix; 0 0 0 1];
     
     %Save rigid matrix
-    save(strcat(path_trans,'mTransRot','429','.mat'),'rigid_Matrix')    
+    %save(strcat(path_trans,'mTransRot','429','.mat'),'rigid_Matrix')    
     
 end
 

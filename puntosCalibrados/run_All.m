@@ -2,13 +2,13 @@ clear all
 clc
 
 %Read data
-c_points='../new_data/calib_points/TMS-429.csv';
+c_points='../new_data/calib_points/TMS-29.csv';
 calib_points=csvread(c_points);
 %Read calibration points TMS
-filename='../new_data/calib_pills/tms/TMS-429.csv';
+filename='../new_data/calib_pills/tms/TMS-29.csv';
 tms_points=csvread(filename);
 %Load pills positions MRI
-load('calib_pills/mri/429.mat');
+load('calib_pills/mri/29.mat');
 
 %Auxiliar variable
 scaling_Matrix=zeros(4);
@@ -36,7 +36,7 @@ if ~any(scaling_Matrix(:))
 
     new_calib_data=[new_point1(1:3);new_point2(1:3);new_point3(1:3);new_point4(1:3)];
     
-    csvwrite('../new_data/calib_pills/tms/new_pos/TMS-429.csv', new_calib_data);
+    csvwrite('../new_data/calib_pills/tms/new_pos/TMS-29.csv', new_calib_data);
     
     %error2= sum(sum(abs(pos_pills_mri-new_calib_data)))
     
@@ -65,6 +65,6 @@ for i=1:size(calib_points,1)
     new_data_matrix=[new_data_matrix;new_obj_point(1),new_obj_point(2),new_obj_point(3),new_refer_pos(1),new_refer_pos(2),new_refer_pos(3)];
     
     %Save csv
-    csvwrite('../new_data/calib_points/new_pos/TMS-429.csv', new_data_matrix);
+    csvwrite('../new_data/calib_points/new_pos/TMS-29.csv', new_data_matrix);
     
 end
