@@ -10,6 +10,7 @@ import nibabel as nib
 import os
 from lib_tms import config
 from lib_tms import transform
+from lib_tms.braviz.readAndFilter import transforms as braviztransforms
 
 __author__ = 'Diego'
 
@@ -594,7 +595,10 @@ class TmsViewer(object):
         self.deep_clear_coil()
         self.ren.RemoveAllViewProps()
         self.experiment = experiment
+        #Draw temporal sphere instead MRI
         #self.__draw_sphere(experiment.sphere_radius-100,experiment.sphere_center,self.SKULL_COLOR,resolution=50)
+
+        #Draw pills
         for p in experiment.calibration_points.itervalues():
             #self.__draw_sphere(10,p,self.CALIB_COLOR)
             self.__draw_sphere(10,p,(1, 0, 0))
@@ -681,7 +685,6 @@ class TmsViewer(object):
             self.ren.ResetCameraClippingRange()
 
 
-
     def draw_sample_cone(self):
         "For testing"
         cone = vtk.vtkConeSource()
@@ -740,18 +743,29 @@ class TmsViewer(object):
         camera.SetViewUp(vu)
         self.ren.ResetCameraClippingRange()
 
-
     def load_nifti(self):
 
+        #Path files
         T1_file = os.path.join(config.T1Path, 'T1W3DTFESENSE.nii.gz')
+
+        #Load nifti images T1
         img = nib.load(T1_file)
+
+        #Get data images
         img_data = img.get_data()
+
+        #Transpose matrix
         img_data = np.transpose(img_data, (2, 1, 0))
+
+        #Image shape
         img_data_shape = img_data.shape
 
         #Get affine matrix
         affine_matrix = transform.getTransformMatrix(img)
+        print 'affine vtk'
+        print affine_matrix
 
+        #Data Importer
         dataImporter = vtk.vtkImageImport()
         dataImporter.SetDataScalarTypeToShort()
         data_string = img_data.flatten(order='F').tostring()
@@ -761,13 +775,18 @@ class TmsViewer(object):
         dataImporter.SetWholeExtent(0, img_data_shape[0] - 1, 0, img_data_shape[1] - 1, 0, img_data_shape[2] - 1)
         dataImporter.Update()
         temp_data = dataImporter.GetOutput()
+
+        #Create and copy new vtkImageData Object
         new_data_temp = vtk.vtkImageData()
         new_data_temp.DeepCopy(temp_data)
 
+        #Reslice new vtkImageData Object with voxel size using affine_matrix from header
         new_data = vtk.vtkImageData()
-        new_data = transform.resliceImage(new_data_temp, affine_matrix)
+        new_data = braviztransforms.applyTransform(new_data_temp, affine_matrix)
 
-        #outline
+        #Start ImagePlaneWidget
+
+        #Outline
         outline=vtk.vtkOutlineFilter()
         outline.SetInputData(new_data)
         outlineMapper=vtk.vtkPolyDataMapper()
@@ -790,6 +809,7 @@ class TmsViewer(object):
         prop1 = planeWidgetX.GetPlaneProperty()
         prop1.SetColor(1, 0, 0)
 
+        #PlaneWidget Y
         planeWidgetY = vtk.vtkImagePlaneWidget()
         planeWidgetY.DisplayTextOn()
         planeWidgetY.SetInputData(new_data)
@@ -801,6 +821,7 @@ class TmsViewer(object):
         prop2.SetColor(1, 1, 0)
         planeWidgetY.SetLookupTable(planeWidgetX.GetLookupTable())
 
+        #PlaneWidget Z
         planeWidgetZ = vtk.vtkImagePlaneWidget()
         planeWidgetZ.DisplayTextOn()
         planeWidgetZ.SetInputData(new_data)
@@ -812,7 +833,7 @@ class TmsViewer(object):
         prop2.SetColor(0, 0, 1)
         planeWidgetZ.SetLookupTable(planeWidgetX.GetLookupTable())
 
-        #Add outlineactor
+        #Add outlineactor in render window
         self.ren.AddActor(outlineActor)
 
         #Load widget interactors and enable

@@ -81,7 +81,7 @@ def circle_from_points_in_sphere(points, sphere_r, sphere_ctr):
     :return: the vector from the center of the sphere to the center of the circle, the radius of the circle
     """
     # center points
-    print 'Circle from points in sphere'
+    #print 'Circle from points in sphere'
     ctr = sphere_ctr
     pts = np.array([np.subtract(p, ctr) for p in points])
 
@@ -90,20 +90,15 @@ def circle_from_points_in_sphere(points, sphere_r, sphere_ctr):
     distances = [np.dot(guess, p) for p in pts]
     m_dist = min(distances)
 
-    print '1'
     if m_dist < 0:
         raise Exception("All points should be concentrated in the same side of the sphere")
     guess *= m_dist * 0.5
     constraints = []
 
-    print '2'
-
     def all_up_plane(candidate):
         vs = pts - candidate
         dots = np.dot(vs, candidate)
         return np.min(dots)
-
-    print '3'
 
     assert all_up_plane(guess) >= 0
     cons = {"type": "ineq", "fun": all_up_plane}
@@ -112,22 +107,18 @@ def circle_from_points_in_sphere(points, sphere_r, sphere_ctr):
     constraints.append({"type": "ineq", "fun": lambda x: np.dot(x, guess_0)})
     assert np.dot(guess, guess_0) > 0
 
-    print '4'
-
     def error_fun(x): return sphere_r ** 2 - np.dot(x, x)
 
     ans = optimize.minimize(error_fun, guess, constraints=constraints, method="COBYLA")
 
-    print 'ans %s'%ans
+    #print 'ans %s'%ans
     #assert ans.success
-
-    print '5'
 
     vec = ans.x
     magnitude = np.linalg.norm(vec)
     circle_radius = np.sqrt(sphere_r ** 2 - magnitude ** 2)
-    print 'vec %s'%vec
-    print 'circle_radius %s'%circle_radius
+    #print 'vec %s'%vec
+    #print 'circle_radius %s'%circle_radius
     return vec, circle_radius
 
 def distance_to_plane(point,plane_point,plane_normal):

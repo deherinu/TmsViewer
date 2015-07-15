@@ -8,6 +8,11 @@ from tms import tms_geom
 import tms_timing
 import Blocks
 
+
+import nibabel as nib
+from nibabel.affines import apply_affine
+from lib_tms import config
+
 from lib_tms import transform
 
 __author__ = 'Diego'
@@ -90,31 +95,31 @@ class TmsBlock(object):
             self.max_timing_error = np.max(good_samples)
 
     def calculate_sphere_intersection(self, sphere_r, sphere_center):
-        print 'Calculate sphere intersection'
+        #print 'Calculate sphere intersection'
         for s in self.samples:
             s.calculate_sphere_intersection(sphere_r, sphere_center)
         self.recalculate_mean_and_error(sphere_r, sphere_center)
 
 
     def recalculate_mean_and_error(self, sphere_r, sphere_center):
-        print 'Recalculate mean and error'
+        #print 'Recalculate mean and error'
         coil_centers = [p.coil_center for p in self.samples if not p.ignored]
         points_on_sphere = [p.sphere_intersection for p in self.samples if not p.ignored]
         points_on_sphere = filter(lambda x: x is not None, points_on_sphere)
-        print '1'
+        #print '1'
         if len(points_on_sphere) < 2:
-            print '2'
+            #print '2'
             v,r = np.array((0,0,0)),0
             self.mean_intersection = np.zeros(3)
             self.mean_coil_center = np.zeros(3)
         else:
-            print '3'
+            #print '3'
             v, r = tms_geom.circle_from_points_in_sphere(points_on_sphere, sphere_r, sphere_center)
-            print '4'
+            #print '4'
             self.mean_intersection = np.mean(points_on_sphere, axis=0)
-            print '5'
+            #print '5'
             self.mean_coil_center = np.mean(coil_centers, axis=0)
-        print '6'
+        #print '6'
         self.circle_radius = r
         self.circle_relative_center = v
         self.position_error = r
@@ -231,7 +236,7 @@ class TmsExperiment(object):
 
     def __create_blocks(self,file_name):
         coil_points = read_and_transform.extract_coil_samples(self.normalized_points)
-        print "Tamano coil: %s" %len(coil_points)
+        #print "Tamano coil: %s" %len(coil_points)
 
         #Get file name
         temp = file_name.split('/')
@@ -247,8 +252,8 @@ class TmsExperiment(object):
         #Generate new coil points
         self._create_csv(csvfile)
         coil_points=self._create_new_data(coil_points,csvfile)
-        print 'Nuevos datos coil'
-        print coil_points
+        #print 'Nuevos datos coil'
+        #print coil_points
 
         #Generate blocks to visualize
         blocks_indices = Blocks.get_blocks(coil_points, 7)
@@ -256,7 +261,7 @@ class TmsExperiment(object):
         blocks_indices = filter(lambda x: len(x) > 5, blocks_indices)
         blocks = []
         for bi in blocks_indices:
-            print 'Creating blocks'
+            #print 'Creating blocks'
             points = [coil_points[i] for i in bi]
             b = TmsBlock(points)
             b.calculate_sphere_intersection(self.sphere_radius, self.sphere_center)
@@ -306,24 +311,42 @@ class TmsExperiment(object):
             textlist = csv.reader(csvfile, delimiter=',', lineterminator='\n')
             my_list=list(textlist)
 
+        #Load affine matrix [temporal]
+        T1_file = config.T1Path+'/T1W3DTFESENSE.nii.gz'
+        img = nib.load(T1_file)
+        img_affine = img.get_affine()
+        print img_affine
+
+        #Parsing float the list
+        my_list = [[float(i) for i in tt] for tt in my_list]
+
+        #Apply affine and save in temporal array
+        temp_list = []
+        for i in range(0, my_list.__len__()):
+            ee = apply_affine(img_affine, my_list[i]).tolist()
+            temp_list.append(ee)
+
+        print 'antes de transformar'
+        print my_list
+
         #Gen new calibration points
         for newvalue in range(0,self.calibration_points.__len__()):
             if newvalue == 0 :
-                self.calibration_points['right'][0] = float(my_list[newvalue][0])
-                self.calibration_points['right'][1] = float(my_list[newvalue][1])
-                self.calibration_points['right'][2] = float(my_list[newvalue][2])
+                self.calibration_points['right'][0] = temp_list[newvalue][0]
+                self.calibration_points['right'][1] = temp_list[newvalue][1]
+                self.calibration_points['right'][2] = temp_list[newvalue][2]
             if newvalue == 1 :
-                self.calibration_points['vertex'][0] = float(my_list[newvalue][0])
-                self.calibration_points['vertex'][1] = float(my_list[newvalue][1])
-                self.calibration_points['vertex'][2] = float(my_list[newvalue][2])
+                self.calibration_points['vertex'][0] = temp_list[newvalue][0]
+                self.calibration_points['vertex'][1] = temp_list[newvalue][1]
+                self.calibration_points['vertex'][2] = temp_list[newvalue][2]
             if newvalue == 2 :
-                self.calibration_points['nasion'][0] = float(my_list[newvalue][0])
-                self.calibration_points['nasion'][1] = float(my_list[newvalue][1])
-                self.calibration_points['nasion'][2] = float(my_list[newvalue][2])
+                self.calibration_points['nasion'][0] = temp_list[newvalue][0]
+                self.calibration_points['nasion'][1] = temp_list[newvalue][1]
+                self.calibration_points['nasion'][2] = temp_list[newvalue][2]
             if newvalue == 3 :
-                self.calibration_points['left'][0] = float(my_list[newvalue][0])
-                self.calibration_points['left'][1] = float(my_list[newvalue][1])
-                self.calibration_points['left'][2] = float(my_list[newvalue][2])
+                self.calibration_points['left'][0] = temp_list[newvalue][0]
+                self.calibration_points['left'][1] = temp_list[newvalue][1]
+                self.calibration_points['left'][2] = temp_list[newvalue][2]
 
         print 'Nuevos puntos calibracion'
         print self.calibration_points

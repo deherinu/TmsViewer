@@ -37,8 +37,8 @@ def normalize_to_ref(points, ref):
     :return: normalized points
     """
     out_points = [normalize_point_to_ref(p, ref) for p in points]
-    print 'Puntos normalizados a la referencia'
-    print out_points
+    #print 'Puntos normalizados a la referencia'
+    #print out_points
     return out_points
 
 
@@ -128,7 +128,7 @@ def get_coil_transform_function(date):
     :param date: Date of capture
     :return: A function transforms points_with ref to a point and an unit vector indicating the direction the coil
     """
-    print 'Get coil transform function'
+    #print 'Get coil transform function'
     best_date = find_best_date(date)
     vc = calibration_data.CALIB_RESULTS[best_date].Coil_vc
     vt = calibration_data.CALIB_RESULTS[best_date].Coil_vt
@@ -136,49 +136,11 @@ def get_coil_transform_function(date):
     top_fun = calibration_commands.get_point_function(vt)
 
     def transform_coil(coil_point):
-        print 'Find center and top coil point'
+        #print 'Find center and top coil point'
         assert coil_point.type == 0
         pos, orn = calibration_commands.transform_sample_no_ref(coil_point)
         ctr = ctr_fun(pos, orn)
         top = top_fun(pos, orn)
-
-        #cambiar valores de ctr y top
-
-        print 'centros %s'%ctr
-        print 'top %s'%top
-
-        #Cambiar centros y top
-
-        temp = np.array([[1.8604, 0, 0, 0],[0, 1.8646, 0, 0],[0, 0, 1.7924, 0],[0, 0, 0, 0.0010]]);
-        scaling_Matrix = temp*1000;
-        #print 'escalar %s'%scaling_Matrix
-
-        temp2=np.array([[0.000069290850432, 0.000014065274787, -0.000997497341396, -1.602921071482849],[-0.000087906973422, 0.000996097050862, 0.000007939098642, -1.949566260937091],
-                               [0.000993715825611, 0.000087136865382, 0.000070256847504, -1.294088648339655],[0, 0, 0, 0.001]])
-        rigid_Matrix=temp2*1000;
-        #print 'rotacion %s'%rigid_Matrix
-
-        aja=np.array([0.80286295, 1.3191538, -0.8674157, 1])
-        aja2=np.dot(scaling_Matrix, aja)
-        aja3=np.dot(rigid_Matrix, aja2)
-        print 'estos son %s'%aja3
-
-        ctr2= np.insert(ctr, 3, 1)
-
-        new_Scaled = np.dot(scaling_Matrix, ctr2)
-        new_Point = np.dot(rigid_Matrix, new_Scaled)
-        new_Point = np.delete(new_Point, 3, 0)
-        #print 'New point ctr %s'%new_Point
-
-        top2= np.insert(top, 3, 1)
-
-        new_Scaled_top = np.dot(scaling_Matrix, top2)
-        new_Point_top = np.dot(rigid_Matrix, new_Scaled_top)
-        new_Point_top = np.delete(new_Point_top, 3, 0)
-        #print 'New point top %s'%new_Point_top
-
-        #ctr = new_Point
-        #top = new_Point_top
 
         return ctr, top
 
@@ -186,7 +148,7 @@ def get_coil_transform_function(date):
 
 
 def find_best_date(date):
-    print 'Find best date'
+    #print 'Find best date'
     possible_dates = calibration_data.INCIDENT_DATES
     for d in reversed(possible_dates):
         dt = datetime.datetime(d.year, d.month, d.day)
@@ -297,7 +259,7 @@ def __test_coil():
     import vtk
     from itertools import izip
 
-    print 'Test coil'
+    #print 'Test coil'
 
     test_dir = os.path.join(os.path.dirname(__file__), "data")
     test_file = os.path.join(test_dir, "TMS-441.csv")
@@ -343,7 +305,7 @@ def __test_coil():
 
 
 def __draw_point_and_uni(p, color, ren):
-    print 'Draw point and uni'
+    #print 'Draw point and uni'
     # draw point
     r1 = .02
     r2 = .01
@@ -368,7 +330,7 @@ def __draw_point_and_uni(p, color, ren):
 def __draw_sphere(center, radius, color, ren):
     import vtk
 
-    print 'Draw sphere'
+    #print 'Draw sphere'
     p = center
     r = radius
     source = vtk.vtkSphereSource()
