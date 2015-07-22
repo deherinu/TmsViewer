@@ -361,13 +361,6 @@ def __add_line_to_ren(origin, vec, color, ren):
     ren.AddActor(ac)
     ac.GetProperty().SetColor(color)
 
-def _set_nombre_archivo(n):
-    global nombre_archivo
-    nombre_archivo=n
-
-def _get_nombre_archivo():
-    return nombre_archivo
-
 if __name__ == "__main__":
     #__test_normalize()
     #__test_calib_samples()

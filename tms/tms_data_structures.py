@@ -8,13 +8,6 @@ from tms import tms_geom
 import tms_timing
 import Blocks
 
-
-import nibabel as nib
-from nibabel.affines import apply_affine
-from lib_tms import config
-
-from lib_tms import transform
-
 __author__ = 'Diego'
 
 
@@ -222,7 +215,7 @@ class TmsExperiment(object):
         newfile_data_csv = temp[lastone-1]
         print newfile_data_csv
         textlist = []
-        with open('new_data/calib_points/new_pos/'+newfile_data_csv, 'rb') as csvfile:
+        with open('calib_data/calib_points/new_pos/'+newfile_data_csv, 'rb') as csvfile:
             textlist = csv.reader(csvfile, delimiter=',', lineterminator='\n')
             my_list=list(textlist)
 
@@ -242,7 +235,7 @@ class TmsExperiment(object):
         temp = file_name.split('/')
         lastone = len(temp)
         newfile = temp[lastone-1]
-        csvfile="new_data/calib_points/"+newfile
+        csvfile="calib_data/calib_points/"+newfile
 
         #Save file with calib coil_points
         with open(csvfile, "w") as output:
@@ -257,6 +250,7 @@ class TmsExperiment(object):
 
         #Generate blocks to visualize
         blocks_indices = Blocks.get_blocks(coil_points, 7)
+
         # remove small blocks
         blocks_indices = filter(lambda x: len(x) > 5, blocks_indices)
         blocks = []
@@ -293,60 +287,45 @@ class TmsExperiment(object):
             datalist.append([temp_points[0], temp_points[1], temp_points[2]])
 
         #Write csv file with calibration points
-        with open("new_data/calib_pills/tms/"+newfile, 'wb') as f:
+        with open("calib_data/calib_pills/tms/"+newfile, 'wb') as f:
             writer = csv.writer(f, delimiter=',')
             writer.writerows(datalist)
 
         #Matlab method, rigid transformation
-        #
-        #
+        # Input new_data/calib_pills/tms/subject.csv (429.csv)
+        # Output new_data/calib_pills/tms/new_pos/subject.csv (TMS-429.csv)
         #
         #
         #
         #
 
-        #Get result of matlab method
+        #Get result of matlab method new pills position
         textlist = []
-        with open('new_data/calib_pills/tms/new_pos/'+newfile, 'rb') as csvfile:
+        with open('calib_data/calib_pills/tms/new_pos/'+newfile, 'rb') as csvfile:
             textlist = csv.reader(csvfile, delimiter=',', lineterminator='\n')
             my_list=list(textlist)
 
-        #Load affine matrix [temporal]
-        T1_file = config.T1Path+'/T1W3DTFESENSE.nii.gz'
-        img = nib.load(T1_file)
-        img_affine = img.get_affine()
-        print img_affine
-
-        #Parsing float the list
+        #Parsing float the list items
         my_list = [[float(i) for i in tt] for tt in my_list]
-
-        #Apply affine and save in temporal array
-        temp_list = []
-        for i in range(0, my_list.__len__()):
-            ee = apply_affine(img_affine, my_list[i]).tolist()
-            temp_list.append(ee)
-
-        print 'antes de transformar'
-        print my_list
 
         #Gen new calibration points
         for newvalue in range(0,self.calibration_points.__len__()):
             if newvalue == 0 :
-                self.calibration_points['right'][0] = temp_list[newvalue][0]
-                self.calibration_points['right'][1] = temp_list[newvalue][1]
-                self.calibration_points['right'][2] = temp_list[newvalue][2]
+                self.calibration_points['right'][0] = my_list[newvalue][0]
+                self.calibration_points['right'][1] = my_list[newvalue][1]
+                self.calibration_points['right'][2] = my_list[newvalue][2]
             if newvalue == 1 :
-                self.calibration_points['vertex'][0] = temp_list[newvalue][0]
-                self.calibration_points['vertex'][1] = temp_list[newvalue][1]
-                self.calibration_points['vertex'][2] = temp_list[newvalue][2]
+                self.calibration_points['vertex'][0] = my_list[newvalue][0]
+                self.calibration_points['vertex'][1] = my_list[newvalue][1]
+                self.calibration_points['vertex'][2] = my_list[newvalue][2]
             if newvalue == 2 :
-                self.calibration_points['nasion'][0] = temp_list[newvalue][0]
-                self.calibration_points['nasion'][1] = temp_list[newvalue][1]
-                self.calibration_points['nasion'][2] = temp_list[newvalue][2]
+                self.calibration_points['nasion'][0] = my_list[newvalue][0]
+                self.calibration_points['nasion'][1] = my_list[newvalue][1]
+                self.calibration_points['nasion'][2] = my_list[newvalue][2]
             if newvalue == 3 :
-                self.calibration_points['left'][0] = temp_list[newvalue][0]
-                self.calibration_points['left'][1] = temp_list[newvalue][1]
-                self.calibration_points['left'][2] = temp_list[newvalue][2]
+                self.calibration_points['left'][0] = my_list[newvalue][0]
+                self.calibration_points['left'][1] = my_list[newvalue][1]
+                self.calibration_points['left'][2] = my_list[newvalue][2]
 
         print 'Nuevos puntos calibracion'
         print self.calibration_points

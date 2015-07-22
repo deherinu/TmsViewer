@@ -2,12 +2,154 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e70be354-d7da-4a3f-a333-1a77b087ddaa" name="Default" comment="">
-      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\tms\image_plane_widget.py" afterPath="" />
-      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\tms\test_vtk.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load_nifit.py" afterPath="$PROJECT_DIR$/load_nifit.py" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\README (2).md" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\data\429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\data\429.~csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\data\429colores.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\data\TMS-441.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\data\TMS-597.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\data\TMS-640.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\data\TMS-758 (2).csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\data\TMS-758.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\new_data\calib_pills\tms\429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\new_data\calib_pills\tms\TMS-429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\new_data\calib_pills\tms\new_pos\TMS-429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\new_data\calib_points\TMS-429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\new_data\calib_points\new_pos\TMS-429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\ok.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\A_scaled_Points.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\B_rigid_transformation_3D.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\C_improve_scaling.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calibTMS-429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1005.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\107.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\113.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\119.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1221.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\123.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\124.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1260.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1265.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1320.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1326.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1338.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1340.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\1357.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\143.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\144.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\15.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\151.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\153.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\154.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\157.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\175.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\176.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\182.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\185.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\186.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\195.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\197.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\201.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\202.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\235.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\25.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\253.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\263.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\264.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\266.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\277.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\29.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\293.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\307.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\31.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\312.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\313.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\314.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\320.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\333.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\346.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\35.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\353.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\355.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\356.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\358.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\371.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\374.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\390.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\399.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\413.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\416.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\417.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\423.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\429.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\431.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\432.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\44.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\440.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\452.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\456.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\458.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\464.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\469.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\472.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\480.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\483.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\484.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\504.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\54.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\552.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\56.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\580.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\599.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\619.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\630.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\65.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\651.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\675.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\689.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\69.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\71.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\72.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\730.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\790.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\821.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\83.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\876.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\893.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\9.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\928.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\934.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\964.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\mri\971.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\tms\TMS-429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_pills\tms\qerqer.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_points\aa.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_points\calib_points_429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\calib_points\new_datanew-TMS-429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\gen_new_points.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\gen_posc_pills.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\graficaspildoras.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\new-TMS-429.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\oldversion\rigid_transform_3D.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\oldversion\test.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\original.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\pills.csv" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\rigid_transform_3D.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\rigid_transforms\mScale429.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\rigid_transforms\mTransRot429.mat" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\run_All.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\testNewScale.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\testnuevos.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\puntosCalibrados\testrotaciontranslacion.m" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\render2.py" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\sphere.py" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\temporaltest.py" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\test2.py" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\testvtk.py" afterPath="" />
+      <change type="DELETED" beforePath="F:\GitHub\TmsViewer\volume.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tms/read_and_transform.py" afterPath="$PROJECT_DIR$/tms/read_and_transform.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tms/tms_data_structures.py" afterPath="$PROJECT_DIR$/tms/tms_data_structures.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tms/tms_geom.py" afterPath="$PROJECT_DIR$/tms/tms_geom.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib_tms/transform.py" afterPath="$PROJECT_DIR$/lib_tms/transform.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tms/vtk_tms_widget.py" afterPath="$PROJECT_DIR$/tms/vtk_tms_widget.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -28,27 +170,15 @@
     <disable_hints />
   </component>
   <component name="DockManager">
-    <window id="1">
+    <window id="2">
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="load_nifit.py" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/load_nifit.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="3759">
-                    <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
-                    <folding>
-                      <element signature="e#0#21#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
             <file leaf-file-name="transform.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/lib_tms/transform.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state vertical-scroll-proportion="0.24450193" vertical-offset="0" max-vertical-offset="2415">
-                    <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+                  <state vertical-scroll-proportion="2.3790426" vertical-offset="534" max-vertical-offset="2772">
+                    <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
                     <folding>
                       <element signature="e#25#34#0" expanded="true" />
                     </folding>
@@ -67,11 +197,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tms_data_structures.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="load_nifit.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/load_nifit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="693" max-vertical-offset="3759">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tms_data_structures.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tms/tms_data_structures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5745554" vertical-offset="6388" max-vertical-offset="8001">
-              <caret line="359" column="0" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="7560">
+              <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -79,14 +221,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vtk_tms_widget.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="read_and_transform.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tms/read_and_transform.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5157" max-vertical-offset="7623">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vtk_tms_widget.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tms/vtk_tms_widget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="43.58621" vertical-offset="17161" max-vertical-offset="18312">
-              <caret line="757" column="8" selection-start-line="757" selection-start-column="8" selection-end-line="757" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.85973763" vertical-offset="15675" max-vertical-offset="18900">
+              <caret line="787" column="88" selection-start-line="787" selection-start-column="88" selection-end-line="787" selection-end-column="88" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transforms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib_tms/braviz/readAndFilter/transforms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3422" max-vertical-offset="5418">
+              <caret line="175" column="34" selection-start-line="175" selection-start-column="34" selection-end-line="175" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib_tms/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="189">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,9 +289,11 @@
         <option value="$PROJECT_DIR$/tms_view.py" />
         <option value="$PROJECT_DIR$/load_nifit.py" />
         <option value="$PROJECT_DIR$/tms/tms_geom.py" />
-        <option value="$PROJECT_DIR$/tms/vtk_tms_widget.py" />
-        <option value="$PROJECT_DIR$/tms/tms_data_structures.py" />
         <option value="$PROJECT_DIR$/tms/read_and_transform.py" />
+        <option value="$PROJECT_DIR$/lib_tms/braviz/readAndFilter/transforms.py" />
+        <option value="$PROJECT_DIR$/tms/tms_data_structures.py" />
+        <option value="$PROJECT_DIR$/lib_tms/transform.py" />
+        <option value="$PROJECT_DIR$/tms/vtk_tms_widget.py" />
       </list>
     </option>
   </component>
@@ -152,7 +326,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -201,6 +374,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,7 +494,9 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tms/tms_data_structures.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -477,8 +653,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.load_nifit" />
-        <item index="1" class="java.lang.String" itemvalue="Python.tms_data_structures" />
+        <item index="0" class="java.lang.String" itemvalue="Python.tms_data_structures" />
+        <item index="1" class="java.lang.String" itemvalue="Python.load_nifit" />
         <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in setup" />
         <item index="3" class="java.lang.String" itemvalue="Python.image_plane_widget" />
         <item index="4" class="java.lang.String" itemvalue="Python.vtk_tms_widget" />
@@ -502,7 +678,13 @@
       <option name="project" value="LOCAL" />
       <updated>1436889398317</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Tms viewer V2.1">
+      <created>1436983721468</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1436983721468</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -530,25 +712,25 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11801897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875368" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875368" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21393523" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1512118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2404318" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16584887" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2296369" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -567,7 +749,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Tms viewer V2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tms viewer V2" />
+    <MESSAGE value="Tms viewer V2.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tms viewer V2.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -582,6 +765,16 @@
           <line>19</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/lib_tms/transform.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="154" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/lib_tms/transform.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -590,11 +783,75 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="136" />
+      <option name="time" value="156" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/load_nifit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="693" max-vertical-offset="3759">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/tms_data_structures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="7560">
+          <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/read_and_transform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5157" max-vertical-offset="7623">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/vtk_tms_widget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="15927" max-vertical-offset="18900">
+          <caret line="790" column="51" selection-start-line="790" selection-start-column="51" selection-end-line="790" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_tms/braviz/readAndFilter/transforms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3422" max-vertical-offset="5418">
+          <caret line="175" column="34" selection-start-line="175" selection-start-column="34" selection-end-line="175" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_tms/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="189">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_tms/transform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2772">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://F:/Descargas/VTK-6.2.0/VTK-6.2.0/Examples/ImageProcessing/Python/ImageInteractorReslice.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1330">
@@ -645,13 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/temporaltest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="773">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Python_64/Lib/site-packages/scipy/optimize/cobyla.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3324573" vertical-offset="3015" max-vertical-offset="5358">
@@ -673,13 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/render2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3587385" vertical-offset="0" max-vertical-offset="2352">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Descargas/VTK-6.2.0/VTK-6.2.0/Examples/GUI/Python/ImagePlaneWidget.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7177215" vertical-offset="231" max-vertical-offset="7077">
@@ -687,24 +930,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testvtk.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32405064" vertical-offset="3230" max-vertical-offset="4179">
-          <caret line="166" column="33" selection-start-line="166" selection-start-column="33" selection-end-line="166" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Descargas/VTK-6.2.0/VTK-6.2.0/Examples/GUI/Python/ImplicitPlaneWidget.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38227847" vertical-offset="55" max-vertical-offset="1806">
           <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/volume.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.18101266" vertical-offset="1172" max-vertical-offset="1995">
-          <caret line="49" column="49" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -750,27 +979,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib_tms/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="773">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib_tms/braviz/readAndFilter/transforms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9443726" vertical-offset="1171" max-vertical-offset="5418">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tms/calibration_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.7658473" vertical-offset="0" max-vertical-offset="2625">
           <caret line="67" column="30" selection-start-line="66" selection-start-column="32" selection-end-line="67" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.630013" vertical-offset="0" max-vertical-offset="2793">
           <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10866753" vertical-offset="0" max-vertical-offset="773">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,7 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.9340233" vertical-offset="1495" max-vertical-offset="2268">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -810,7 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.2225097" vertical-offset="172" max-vertical-offset="945">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -818,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.102199" vertical-offset="4284" max-vertical-offset="5691">
           <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -826,51 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1596">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tms/test_blocks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="773">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tms/test_geom_and_read.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2814">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tms/tms_timing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9560155" vertical-offset="739" max-vertical-offset="1512">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tms/tms_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.98318243" vertical-offset="907" max-vertical-offset="1680">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/load_nifit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="3759">
-          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -882,64 +1043,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib_tms/transform.py">
+    <entry file="file://$PROJECT_DIR$/config.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24450193" vertical-offset="0" max-vertical-offset="2415">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tms/read_and_transform.py">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.257182" vertical-offset="0" max-vertical-offset="7770">
-          <caret line="192" column="26" selection-start-line="192" selection-start-column="26" selection-end-line="192" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tms/tms_viewer_gui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2276843" vertical-offset="0" max-vertical-offset="3633">
-          <caret line="82" column="61" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="773">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tms_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32082793" vertical-offset="235" max-vertical-offset="8211">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-8.899346" vertical-offset="7438" max-vertical-offset="8211">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/tms_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0039216" vertical-offset="915" max-vertical-offset="1680">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/tms_viewer_gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.2509804" vertical-offset="0" max-vertical-offset="3633">
+          <caret line="82" column="61" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/tms_timing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9764706" vertical-offset="747" max-vertical-offset="1512">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tms/tms_geom.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="2209" max-vertical-offset="6531">
+        <state vertical-scroll-proportion="2.9215686" vertical-offset="222" max-vertical-offset="6531">
           <caret line="119" column="5" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/test_geom_and_read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5411766" vertical-offset="1944" max-vertical-offset="2709">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/test_blocks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="773">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_tms/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="773">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tms/vtk_tms_widget.py">
+    <entry file="file://$PROJECT_DIR$/lib_tms/braviz/readAndFilter/transforms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="43.58621" vertical-offset="17161" max-vertical-offset="18312">
-          <caret line="757" column="8" selection-start-line="757" selection-start-column="8" selection-end-line="757" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3422" max-vertical-offset="5418">
+          <caret line="175" column="34" selection-start-line="175" selection-start-column="34" selection-end-line="175" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/read_and_transform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7623">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/tms_data_structures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6465" max-vertical-offset="7560">
+          <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tms/tms_data_structures.py">
+    <entry file="file://$PROJECT_DIR$/load_nifit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5745554" vertical-offset="6388" max-vertical-offset="8001">
-          <caret line="359" column="0" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3759">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib_tms/transform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3790426" vertical-offset="534" max-vertical-offset="2772">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tms/vtk_tms_widget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85973763" vertical-offset="15675" max-vertical-offset="18900">
+          <caret line="787" column="88" selection-start-line="787" selection-start-column="88" selection-end-line="787" selection-end-column="88" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

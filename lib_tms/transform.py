@@ -34,6 +34,7 @@ def numpy2vtkMatrix(M):
 def resliceImage(img, transform, origin2=None, dimension2=None, spacing2=None, interpolate=True):
     if isinstance(transform, (np.matrix, np.ndarray)):
         transform = numpy2vtkMatrix(transform)
+        print 'bu'
     if isinstance(transform, vtk.vtkMatrix4x4):
         vtkTrans = vtk.vtkMatrixToHomogeneousTransform()
         vtkTrans.SetInput(transform)
@@ -92,6 +93,7 @@ def resliceImage(img, transform, origin2=None, dimension2=None, spacing2=None, i
     if None == dimension2:
         dimension2 = img.GetDimensions()
         #=============================Finished parsing arguments===============
+
     reslicer = vtk.vtkImageReslice()
     reslicer.SetResliceTransform(vtkTrans)
     reslicer.SetInputData(img)
@@ -108,3 +110,18 @@ def resliceImage(img, transform, origin2=None, dimension2=None, spacing2=None, i
     outImg = reslicer.GetOutput()
     # print dimension2
     return outImg
+
+
+def reslice(img, transform, data):
+    reslicer=vtk.vtkImageReslice()
+
+    reslicer.SetInputData(img)
+
+    transform = numpy2vtkMatrix(transform)
+    vtkTrans = vtk.vtkMatrixToHomogeneousTransform()
+    vtkTrans.SetInput(transform)
+
+    reslicer.SetResliceTransform(vtkTrans)
+    reslicer.SetOutputOrigin(data.GetOrigin())
+    reslicer.SetOutputSpacing(data.GetSpacing())
+    reslicer.SetOutputExtent(data.GetExtent())

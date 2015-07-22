@@ -604,6 +604,7 @@ class TmsViewer(object):
             self.__draw_sphere(10,p,(1, 0, 0))
         #self.__draw_nose(experiment.calibration_points,experiment.sphere_center)
         self.load_nifti()
+        self.load_fibers()
         self.ren.Render()
         self.reset_camera()
         self.ren_win.Render()
@@ -762,7 +763,6 @@ class TmsViewer(object):
 
         #Get affine matrix
         affine_matrix = transform.getTransformMatrix(img)
-        print 'affine vtk'
         print affine_matrix
 
         #Data Importer
@@ -780,8 +780,14 @@ class TmsViewer(object):
         new_data_temp = vtk.vtkImageData()
         new_data_temp.DeepCopy(temp_data)
 
+        print new_data_temp.GetOrigin()
+        print new_data_temp.GetSpacing()
+        print new_data_temp.GetExtent()
+
+
         #Reslice new vtkImageData Object with voxel size using affine_matrix from header
         new_data = vtk.vtkImageData()
+        #new_data = transform.resliceImage(new_data_temp, affine_matrix)
         new_data = braviztransforms.applyTransform(new_data_temp, affine_matrix)
 
         #Start ImagePlaneWidget
@@ -843,6 +849,28 @@ class TmsViewer(object):
         planeWidgetY.On()
         planeWidgetZ.SetInteractor(self.iren)
         planeWidgetZ.On()
+
+    def load_fibers(self):
+
+        #Path files
+        fibers_file = os.path.join(config.fibersPath, 'CaminoTracts.vtk')
+        dif_path = os.path.join(config.fibersPath,'diff2surf.mat')
+        fa_path = os.path.join(config.fibersPath,'fa.nii.gz')
+        orig_path = os.path.join(config.fibersPath,'orig.nii.gz')
+        pd_reader = vtk.vtkPolyDataReader()
+        pd_reader.SetFileName(fibers_file)
+        pd_reader.Update()
+        fibs = pd_reader.GetOutput()
+
+        matrix = braviztransforms.readFlirtMatrix(dif_path, fa_path, orig_path)
+        new_fibs = braviztransforms.transformGeneralData(fibs, matrix)
+
+        mapper2 = vtk.vtkPolyDataMapper()
+        mapper2.SetInputData(new_fibs)
+        #Actor
+        actor2 =vtk.vtkActor()
+        actor2.SetMapper(mapper2)
+        self.ren.AddActor(actor2)
 
 
 class QTmsViwerWidget(QFrame):
