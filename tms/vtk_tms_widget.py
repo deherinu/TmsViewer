@@ -784,7 +784,7 @@ class TmsViewer(object):
         print new_data_temp.GetSpacing()
         print new_data_temp.GetExtent()
 
-
+        #
         #Reslice new vtkImageData Object with voxel size using affine_matrix from header
         new_data = vtk.vtkImageData()
         #new_data = transform.resliceImage(new_data_temp, affine_matrix)
