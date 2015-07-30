@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Parallel Coordinates</title>
+    <link rel="icon"
+      type="image/png"
+      href="{{ static_url ("parallel.ico") }}">
+    <link href="{{ static_url("bootstrap-3.3.4/css/bootstrap.min.css") }}" rel="stylesheet">
+    <style type="text/css">
+    svg {
+  font-size: 14px;
+}
+
+.foreground path {
+  fill: none;
+  stroke-opacity: .8;
+  stroke-width: 2px;
+}
+
+.foreground path:hover {
+  stroke-width: 6;
+  stroke-opacity: 1.0;
+  z-index = 2;
+}
+
+.foreground path.path-fade:hover {
+  stroke-width: 1px;
+  stroke-opacity: 1.0;
+}
+
+.foreground path.path-disabled {
+  stroke: pink;
+  display : none;
+}
+
+.foreground path.path-fade {
+  stroke: #aaa;
+  stroke-opacity: 0.3;
+  z-index: -1;
+  stroke-width: 1px;
+}
+
+
+#highlight_path_node path.bg {
+  stroke-width: 10;
+  stroke-opacity: 0.8;
+  stroke : yellow;
+  stroke-linecap : round;
+  fill : none;
+}
+
+#highlight_path_node path.fg {
+  stroke-width: 6;
+  stroke-opacity: 1.0;
+  stroke-linecap : round;
+  fill : none;
+}
+
+.legend {
+  font-size: 18px;
+  font-style: oblique;
+}
+
+.legend line {
+  stroke-width: 10px;
+}
+
+
+.brush .extent {
+  fill-opacity: .3;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.axis line, .axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  text-shadow: 0 1px 0 #fff;
+  cursor: move;
+}
+.missing {
+        text-align:center;
+}
+#selected table tr, td, th {
+        padding-left: 1em;
+        padding-right: 1em;
+        }
+#selected table tr:hover{
+        background:DarkSlateGray ;
+        color:white;
+        }
+
+#selected table tr.highlighted_row {
+    background-color: rgb(222, 222, 5);
+}
+
+#save_sample{
+        margin-right:10em;
+        }
+
+#save_sample h3{
+        margin-bottom: 1em;
+        }
+
+#save-sample-box{
+        margin-top:1em;
+        }
+
+button#change-vars-buttons {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+div#variable-select-panel {
+        max-width: 50%;
+        z-index : 2;
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        }
+div.variable-list{
+  overflow: scroll;
+  max-height: 60vh;
+  height: 60vh;
+}
+
+
+    </style>
+
+    <script type="text/javascript" src="{{ static_url ("d3/d3.js") }}"></script>
+    <script type="text/javascript" src="{{ static_url ("d3/colorbrewer.js") }}"></script>
+    <script type="text/javascript" src="{{ static_url ("jquery-2.1.3.min.js") }}"></script>
+    <script type="text/javascript" src="{{ static_url ("d3-context-menu.js") }}"></script>
+    <script type="text/javascript" src="{{ static_url ("spin.min.js") }}"></script>
+    <script src="{{ static_url ("bootstrap-3.3.4/js/bootstrap.min.js") }}"></script>
+
+
+     <link href="{{ static_url ("d3-context-menu.css") }}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<button class="btn btn-default" id="change-vars-buttons"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></button>
+
+<div class="panel panel-default hidden" id="variable-select-panel">
+<div class="panel-body">
+<button type="button" class="close pull-right" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<form>
+
+<div role="tabpanel">
+ <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" id="variable-control-tabs">
+    <li role="presentation" class="active"><a href="#select-variables-tab" aria-controls="home" role="tab" data-toggle="tab">Variables</a></li>
+    <li role="presentation"><a href="#categories-list-tab" aria-controls="profile" role="tab" data-toggle="tab">Categories</a></li>
+  </ul>
+  <!-- Tab panes -->
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="select-variables-tab">
+
+<div class="form-group">
+<label for="search-vars">Search</label>
+<input id="search-vars" placeholder="Enter part of variable name" class="form-control">
+</div>
+
+<div class="well variable-list">
+
+
+</div>
+</div>
+
+<div role="tabpanel" class="tab-pane" id="categories-list-tab">
+
+<div class="form-group">
+<label for="search-vars">Search</label>
+<input id="search-cats" placeholder="Enter part of variable name" class="form-control">
+</div>
+
+<div class="well variable-list">
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="btn-group btn-group-justified" role="group" aria-label="variable selection controls">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-success" id="apply-variable-change">Apply</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary" id="clear_checked_variables">Clear</button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-danger" id="cancel_variable_selection">Cancel</button>
+  </div>
+</div>
+</form>
+</div>
+</div>
+
+<div id="parallel-coords"></div>
+
+<div class="missing" id="n_missing_label">
+    Missing Values: N
+</div>
+
+<div id="selection_div">
+
+<h3>Selection
+</h3>
+<div id="save_sample" class="pull-right">
+    <h3>Selected SubSample</h3>
+    <button class="btn btn-default btn-block" id="send-sample"> Send to all </button>
+    <div class="panel panel-default" id="save-sample-box">
+  <div class="panel-heading">
+    <h4 class="panel-title">Save</h4>
+  </div>
+    <div class="panel-body">
+    <form name="save_sample" action="#saved" onsubmit="return send_sample(this)" >
+        <div class="form-group">
+        <label for="sample_name">Name:</label>
+        <input type="text" name="sample_name" required id="sample_name" class="form-control" placeholder="Sample Name">
+        </div>
+        <div class="form-group">
+        <label for="sample_desc">Description:</label><br>
+        <textarea name="sample_desc" id="sample_desc" class="form-control" placeholder="Sample Description"></textarea>
+        </div>
+        <input type="hidden" name="sample_subjects" value="">
+        <input type="submit" class="form-control btn btn-default">
+    </form>
+    <div id="result"></div>
+    </div>
+    </div>
+</div>
+<span id="selected">
+    Nothing yet
+</span>
+
+</div>
+
+<!-- Sample Message Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sample Received</h4>
+      </div>
+      <div class="modal-body" id="sample-size">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="sample-reject">Reject</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="sample-never">Always Reject</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" id="sample-accept">Accept</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" id="sample-always">Always Accept</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+//------------------Parallel coordinates-----------------------
+var data2 = [];
+var flowers;
+var sample ;
+var codes_w_missing ;
+var current_subsample_list = [];
+
+var traits ;
+var traits_indices;
+var caths_index;
+
+var foreground;
+
+var line = d3.svg.line(),
+        axis = d3.svg.axis().orient("left");
+
+function max(x,y){ return x > y ? x : y ; }
+
+function create_plot(new_flowers, categories, new_traits) {
+    flowers = new_flowers;
+    traits = new_traits;
+    var colors = d3.scale.ordinal().domain(categories).range(colorbrewer.Set1[max(categories.length, 3)])
+    var color_style = "";
+    for (i in categories) {
+        var sp = categories[i];
+        var c = colors(sp);
+        var line_st = "." + sp + " { stroke : " + c + " ; }" + "\n";
+        color_style += line_st;
+    }
+    var sheet = document.createElement('style');
+    sheet.innerHTML = color_style;
+    document.body.appendChild(sheet);
+
+
+    var width = window.innerWidth * 0.95;
+    var height = window.innerHeight * 0.90;
+
+    var m = [50, 100, 50, 100];
+    m[2] = m[2] + 30 * categories.length;
+    m[3] += window.innerWidth * 0.05 * 0.5;
+    var w = width - m[1] - m[3],
+            h = height - m[0] - m[2];
+
+    var x = d3.scale.ordinal().domain(traits).rangePoints([0, w]),
+            y = {};
+
+
+    d3.select("#parallel-coords").html("");
+    var svg = d3.select("#parallel-coords").append("svg:svg")
+            .attr("width", w + m[1] + m[3])
+            .attr("height", h + m[0] + m[2])
+            .attr("id", "main_svg")
+            .append("svg:g")
+            .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+
+// Create a scale and brush for each trait.
+    traits.forEach(function (d) {
+        // Coerce values to numbers.
+        flowers.forEach(function (p) {
+            p[d] = +p[d];
+        });
+        var ex = d3.extent(flowers, function (p) {
+            return p[d];
+        });
+        var range = ex[1] - ex[0];
+        ex[0] = ex[0] - 0.02 * range;
+        ex[1] = ex[1] + 0.02 * range;
+        y[d] = d3.scale.linear()
+                .domain(ex)
+                .range([h, 0]);
+
+        y[d].brush = d3.svg.brush()
+                .y(y[d])
+                .on("brush", brush);
+    });
+
+
+    // Add a legend.
+    var legend = svg.selectAll("g.legend")
+            .data(categories)
+            .enter().append("svg:g")
+            .attr("class", "legend")
+            .attr("transform", function (d, i) {
+                return "translate(0," + (i * 20 + height - m[2]) + ")";
+            });
+
+    legend.append("svg:line")
+            .attr("class", String)
+            .attr("x2", 8);
+
+    legend.append("svg:text")
+            .attr("x", 12)
+            .attr("dy", ".31em")
+            .text(function (d) {
+                return d;
+            });
+
+    // Add foreground lines.
+    foreground = svg.append("svg:g")
+            .attr("class", "foreground")
+            .selectAll("path")
+            .data(flowers)
+            .enter().append("svg:path")
+            .attr("d", path)
+            .attr("class", function (d) {
+                return d.category;
+            });
+    foreground.append("svg:title").text(function (x) {
+        return x.code;
+    });
+
+    // Add a group element for each trait.
+    var g = svg.selectAll(".trait")
+            .data(traits)
+            .enter().append("svg:g")
+            .attr("class", "trait")
+            .attr("transform", function (d) {
+                return "translate(" + x(d) + ")";
+            })
+            .call(d3.behavior.drag()
+                    .origin(function (d) {
+                        return {x: x(d)};
+                    })
+                    .on("dragstart", dragstart)
+                    .on("drag", drag)
+                    .on("dragend", dragend));
+
+    // Add an axis and title.
+    g.append("svg:g")
+            .attr("class", "axis")
+            .each(function (d) {
+                d3.select(this).call(axis.scale(y[d]));
+            })
+            .append("svg:text")
+            .attr("text-anchor", "middle")
+            .attr("y", -9)
+            .text(String);
+
+    // Add a brush for each axis.
+    g.append("svg:g")
+            .attr("class", "brush")
+            .each(function (d) {
+                d3.select(this).call(y[d].brush);
+            })
+            .selectAll("rect")
+            .attr("x", -8)
+            .attr("width", 16);
+
+
+    function dragstart(d) {
+        i = traits.indexOf(d);
+    }
+
+    function drag(d) {
+        x.range()[i] = d3.event.x;
+        traits.sort(function (a, b) {
+            return x(a) - x(b);
+        });
+        g.attr("transform", function (d) {
+            return "translate(" + x(d) + ")";
+        });
+        foreground.attr("d", path);
+    }
+
+    function dragend(d) {
+        x.domain(traits).rangePoints([0, w]);
+        var t = d3.transition().duration(500);
+        t.selectAll(".trait").attr("transform", function (d) {
+            return "translate(" + x(d) + ")";
+        });
+        t.selectAll(".foreground path").attr("d", path);
+    }
+
+    highlight_path = svg.append("svg:g")
+            .attr("class", "highlight_path").attr("id", "highlight_path_node");
+
+    // Returns the path for a given data point.
+    function path(d) {
+      return line(traits.map(function(p) { return [x(p), y[p](d[p])]; }));
+    }
+
+function brush() {
+  var actives = traits.filter(function(p) { return !y[p].brush.empty(); }),
+      extents = actives.map(function(p) { return y[p].brush.extent(); });
+  foreground.classed("path-fade", function(d) {
+    return !actives.every(function(p, i) {
+      return extents[i][0] <= d[p] && d[p] <= extents[i][1];
+    });
+  });
+
+//  var sel_title=document.getElementById("selection_div").getElementsByTagName("H3")[0];
+//  sel_title.innerText="Selection 0/" + flowers.length;
+
+  prepare_tabulate()
+}
+
+}
+//---------------------end of set_vars--------------------------------
+
+
+
+
+function tabulate(data, columns, selected_codes) {
+
+    // Fix order of paths, to let selected lines at the end
+    foreground.sort(function (a,b){
+    //console.log(a);
+    if (selected_codes.indexOf(String(a.code)) >= 0 && selected_codes.indexOf(String(b.code)) < 0){return 1}
+    if (selected_codes.indexOf(String(a.code)) < 0 && selected_codes.indexOf(String(b.code)) >= 0){return -1}
+    return 0;
+    } ).order();
+
+    var sel_title=document.getElementById("selection_div").getElementsByTagName("H3")[0]
+    sel_title.textContent  = "Selection " + data.length + "/" + sample.length;
+    var table = d3.select("#selected").html("").append("table"),
+        thead = table.append("thead"),
+        tbody = table.append("tbody");
+
+    // append the header row
+    thead.append("tr")
+        .selectAll("th")
+        .data(columns)
+        .enter()
+        .append("th")
+            .text(function(column) { return column; });
+
+    // create a row for each object in the data
+    var rows = tbody.selectAll("tr")
+        .data(data)
+        .enter()
+        .append("tr");
+
+    // create a cell in each row for each column
+    var cells = rows.selectAll("td")
+        .data(function(row) {
+            return columns.map(function(column) {
+                return {column: column, value: row[column]};
+            });
+        })
+        .enter()
+        .append("td")
+            .text(function(d) { return d.value; });
+
+    return table;
+}
+
+function prepare_tabulate(){
+  var selected_codes=[];
+  var selected_indeces=[];
+  var f2 = foreground[0];
+
+  for (i=0;i<f2.length;i++){
+  var p=f2[i];
+  if (! (p.classList.contains("path-fade") || p.classList.contains("path-disabled")))
+  {
+  var t=p.getElementsByTagName("title")[0];
+  var code = t.textContent;
+  selected_indeces.push(i);
+  selected_codes.push(code);
+  }
+  }
+
+  document.save_sample["sample_subjects"].value=selected_codes;
+  current_subsample_list = selected_codes;
+
+
+
+  if (make_table_timeout){
+    window.clearTimeout(make_table_timeout);
+  }
+  make_table_timeout=window.setTimeout(function(){
+    var data2 = [];
+    for(i=0; i<selected_indeces.length; i++)
+    {
+        var j=selected_indeces[i];
+        data2.push(flowers[j]);
+    }
+
+    tabulate(data2,["code","category"].concat(traits),selected_codes);
+    }
+  , 1000);
+}
+
+
+// Handles a brush event, toggling the display of foreground lines.
+
+var make_table_timeout;
+
+
+
+
+function send_sample(data){
+
+  var XHR = new XMLHttpRequest();
+  var urlEncodedData ;
+  var urlEncodedDataPairs = [];
+  var name;
+
+  // We turn the data object into an array of URL encoded key value pairs.
+  var fields=["sample_name","sample_desc","sample_subjects"];
+  for(i=0;i<fields.length;i++) {
+    name=fields[i];
+    urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name].value));
+  }
+
+  // We combine the pairs into a single string and replace all encoded spaces to
+  // the plus character to match the behaviour of the web browser form submit.
+  urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+
+  // We define what will happen if the data is successfully sent
+  XHR.addEventListener('load', function(event) {
+    if(200==XHR.status){
+    document.getElementById("result").innerHTML='<div class="alert alert-success" role="alert" >"saved!"</div>';
+    document.getElementById("result").className='<div class="alert alert-warning" role="alert" >"saved!"</div>';
+    }else{
+    document.getElementById("result").innerText="Name is not Unique";
+    document.getElementById("result").className="error";
+    alert('A sample with this name already exists, try again');
+    }
+  });
+
+  // We define what will happen in case of error
+  XHR.addEventListener('error', function(event) {
+    alert('Couldn\'t contact server');
+  });
+
+  // We setup our request
+  XHR.open('POST', '/parallel');
+
+  // We add the required HTTP header to handle a form data POST request
+  XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  //XHR.setRequestHeader('Content-Length', urlEncodedData.length);
+
+  // And finally, We send our data.
+  XHR.send(urlEncodedData);
+
+return false;
+}
+
+
+
+//---------------------------------connection--------------------------------------
+var last_message = null;
+var message_getter = null;
+var errorSleepTime = 500;
+ function openWS() {
+    var address = "ws://" + window.location.host + "/messages_ws";
+    message_getter = new WebSocket(address);
+    message_getter.onerror=function () {
+    if (errorSleepTime < 5000){
+    errorSleepTime*=2;
+    }
+    };
+    message_getter.onmessage = function(e) {
+      if (last_message==e.data){
+      return;
+      }
+      message = JSON.parse(e.data);
+      var m_sample = message.sample;
+      if (m_sample != null && !message.target){
+        handle_sample_message(m_sample);
+      }
+      var code = message.subject;
+      if (code != null){
+               highlight_subj_path(code);
+        }
+    };
+    message_getter.onclose = function(e) {
+      window.setTimeout(openWS, errorSleepTime);
+    };
+  }
+
+//------------------------sample messages------------------------------------
+var sample_accept_policy="ask";
+function connect_sample_modal(){
+$("#sample-accept").click(function(){set_sample(received_sample);});
+$("#sample-always").click(function(){sample_accept_policy="always";set_sample(received_sample);});
+$("#sample-never").click(function(){sample_accept_policy="never";});
+}
+
+var received_sample;
+function handle_sample_message(m_sample){
+if (sample_accept_policy == "ask"){
+    document.getElementById("sample-size").textContent="Size: "+m_sample.length;
+    received_sample = m_sample;
+    var modal_opened=$("#myModal").hasClass("in");
+        if (modal_opened){
+        }
+        else{
+        $("#myModal").modal({backdrop : 'static'});
+        }
+    }
+else if(sample_accept_policy == "always"){
+    set_sample(m_sample);
+}
+else
+{
+return;
+}
+}
+
+// --------------- Set Sample Function -------------------
+function set_sample(new_sample){
+    console.log("changing sample");
+    console.log(new_sample);
+    var good_in_sample = [];
+    var n_missing = 0;
+    for (i=0; i<new_sample.length ; i++){
+        if (codes_w_missing.indexOf(new_sample[i]) >=0){
+            n_missing += 1;
+        }
+        else {
+            good_in_sample.push(new_sample[i]);
+        }
+    }
+    foreground.classed("path-disabled",
+       function(d,i) {
+         if (good_in_sample.indexOf(d.code) >= 0){
+            return false;
+         }
+         return true;
+       }
+    );
+    sample = new_sample;
+    document.getElementById("n_missing_label").textContent="Missing Values: "+n_missing;
+    document.getElementById("n_missing_label").textContent="Missing Values: "+n_missing;
+    prepare_tabulate();
+}
+
+
+function highlight_subj_path(subj){
+var g=document.getElementById("highlight_path_node");
+while (g.firstChild) {
+    g.removeChild(g.firstChild);
+}
+var table_row=$("#selected").find("table tr");
+table_row.removeClass("highlighted_row");
+if (subj != null) {
+var s=d3.selectAll(".foreground path").filter(function (f) {return f.code == subj});
+var n = s[0][0];
+var n2=n.cloneNode(true);
+n2.classList.add("bg");
+n2.onmouseover=null;
+var n3=n.cloneNode(true);
+n3.classList.add("fg");
+g.appendChild(n2);
+g.appendChild(n3);
+
+// in table
+
+table_row.filter(function(i){return this.firstChild.textContent == subj}).addClass("highlighted_row");
+
+}
+return;
+}
+
+var hover_subj="";
+//------------------context menu---------------------------
+var menu = [
+    {
+        title: function(d) {return "Show "+d.code+" in other views"},
+        action : function(elm, d, i){
+        send_subject_message(d.code)
+        }
+    }
+];
+
+
+function add_context_menu(){
+    foreground.on("contextmenu.menu",d3.contextMenu(menu));
+};
+
+function send_subject_message(subj){
+var msg=JSON.stringify({"subject": subj})
+if (message_getter){
+last_message = msg;
+message_getter.send(msg);
+}
+highlight_subj_path(subj);
+}
+
+function send_sample_message(){
+var int_codes = [];
+for (i=0; i<current_subsample_list.length; i++){
+    int_codes.push(Number(current_subsample_list[i]));
+}
+var msg=JSON.stringify({"sample": int_codes })
+last_message = msg;
+console.log(msg);
+    if (message_getter){
+    message_getter.send(msg);
+    }
+}
+
+// ------------------update data---------------------
+
+
+function set_all_data(in_sample, in_missing, in_flowers, in_categories, in_traits, in_traits_indices, in_cath_idx){
+  data2 = [];
+  traits_indices = in_traits_indices;
+  caths_index = in_cath_idx;
+  sample = in_sample;
+  codes_w_missing = in_missing;
+  current_subsample_list = [];
+  create_plot(in_flowers, in_categories, in_traits);
+  tabulate(data2,["code","category"].concat(traits),[]);
+  add_context_menu();
+}
+
+function load_new_variables(vars){
+    var new_missing;
+    var new_data;
+    var new_categories;
+    var new_traits ;
+    set_all_data(sample, new_missing, new_data, new_categories, new_traits)
+
+}
+
+// -------------------interface-----------------------
+
+var vars_spinner = new Spinner();
+var cats_spinner = new Spinner();
+function show_variable_select_panel(){
+
+$("#variable-select-panel").removeClass("hidden");
+$("#change-vars-buttons").addClass("hidden");
+
+var vars_list = $("#select-variables-tab div.variable-list");
+var cats_list = $("#categories-list-tab div.variable-list");
+
+vars_list.html("");
+cats_list.html("");
+vars_spinner.spin();
+cats_spinner.spin();
+vars_list.append(vars_spinner.el);
+cats_list.append(cats_spinner.el);
+
+
+$.getJSON("parallel/data/variables", function(data) {
+vars_spinner.stop();
+cats_spinner.stop();
+    for (i=0; i<data.variables.length; i++){
+
+  //<div><label> <input type="checkbox" value="" > Var 1 </label></div>
+       var v=data.variables[i];
+       $('<label></label>').text(v.name).prepend('<input type="checkbox" value="'+v.var_id+'" >').appendTo(vars_list).wrap('<div class="checkbox"></div>');
+       if (v.type == "nominal"){
+       //  <div><label> <input type="radio" value="" name="categories"> Cat 1 </label></div>
+       $('<label></label>').text(v.name).prepend('<input type="radio" name="categories" value="'+v.var_id+'" >').appendTo(cats_list).wrap('<div class="radio"></div>');
+       }
+    }
+    // find checked variables
+    vars_list.find("input").filter(function(index, element){return traits_indices.indexOf(Number(element.value))>=0;}).prop("checked", true);
+    // find cathegory
+    cats_list.find("input").filter(function(index, element){return caths_index == element.value;}).prop("checked", true);
+    } );
+
+}
+
+function hide_variable_select_panel(){
+$("#variable-select-panel").addClass("hidden");
+$("#change-vars-buttons").removeClass("hidden");
+}
+
+$("#change-vars-buttons").click(show_variable_select_panel);
+$("#variable-select-panel button.close").click(hide_variable_select_panel);
+$("#cancel_variable_selection").click(hide_variable_select_panel);
+
+function filter_variables_list(list, mask){
+mask=mask.toUpperCase();
+$(list).children("div.variable-list div").addClass("hidden");
+$(list).children("div.variable-list div").filter(function (){return this.textContent.toUpperCase().indexOf(mask)>=0 }).removeClass("hidden");
+}
+
+$("#search-vars").change(function(){
+            filter_variables_list($("#select-variables-tab div.variable-list"),
+            $("#search-vars").val());
+            });
+
+$("#search-cats").change(function(){
+            filter_variables_list($("#categories-list-tab div.variable-list"),
+            $("#search-cats").val());
+            });
+
+function clear_list(){
+$("#select-variables-tab").find("div.variable-list input").prop("checked", false);
+}
+$("#clear_checked_variables").click(clear_list);
+
+$('#variable-control-tabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+
+function apply_new_variables(){
+var new_cat_idx = $("#categories-list-tab div.variable-list").find("input").filter(function(i,e){return e.checked;}).val();
+var checked_boxes = $("#select-variables-tab div.variable-list").find("input").filter(function(i,e){return e.checked;});
+var new_traits = "";
+for (i=0; i<checked_boxes.length; i++){
+if (i>0) new_traits+=",";
+new_traits+=checked_boxes[i].value;
+}
+url = "parallel/data/values?category="+new_cat_idx+"&variables="+new_traits;
+console.log(url);
+hide_variable_select_panel();
+$.getJSON(url, function(r){
+state_obj = {cat:new_cat_idx, variables:new_traits};
+history.replaceState(state_obj, "", "parallel?vars="+new_cat_idx+","+new_traits);
+set_all_data(sample, r.missing, r.data, r.categories, r.vars, r.var_indices, r.cat_idx );
+});
+}
+
+
+
+$("#apply-variable-change").click(apply_new_variables);
+
+
+
+
+// -------------------on load-------------------------
+
+window.onload=function(){
+  // initial data
+  var sample2 = {% raw sample %};
+  var codes_w_missing2 = {%raw missing%} ;
+  var flowers2 = {% raw data %} ;
+  var categories2 = {% raw caths %} ;
+  var traits2 = {% raw vars %};
+  var traits_idx2 = {% raw var_indices %};
+  var cath_idx2 = {% raw cath_index %};
+  set_all_data(sample2, codes_w_missing2, flowers2, categories2, traits2, traits_idx2, cath_idx2 );
+  document.getElementById("main_svg").onclick=function(){highlight_subj_path(null);};
+  openWS();
+  $("#send-sample").click(send_sample_message);
+  connect_sample_modal();
+  set_sample(sample);
+};
+
+
+    </script>
+
+</body>
+</html>

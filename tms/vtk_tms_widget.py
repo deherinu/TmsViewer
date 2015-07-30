@@ -788,7 +788,11 @@ class TmsViewer(object):
         #Reslice new vtkImageData Object with voxel size using affine_matrix from header
         new_data = vtk.vtkImageData()
         #new_data = transform.resliceImage(new_data_temp, affine_matrix)
+        transform_tal = braviztransforms.readFreeSurferTransform(config.talPath)
+
         new_data = braviztransforms.applyTransform(new_data_temp, affine_matrix)
+
+        #new_data = new_data_temp
 
         #Start ImagePlaneWidget
 
